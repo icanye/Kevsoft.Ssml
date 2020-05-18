@@ -28,7 +28,7 @@ namespace Kevsoft.Ssml
             return _inner.Say(value);
         }
 
-        IFluentSayNumber ISsml.Say(int value)
+        IFluentSayNumber ISsml.Say(double value)
         {
             return _inner.Say(value);
         }

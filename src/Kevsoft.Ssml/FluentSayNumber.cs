@@ -7,10 +7,10 @@ namespace Kevsoft.Ssml
     public class FluentSayNumber : IFluentSayNumber, ISsmlWriter
     {
         private readonly Ssml _ssml;
-        private readonly int _value;
+        private readonly double _value;
         private SayAsWriter _writer;
 
-        public FluentSayNumber(Ssml ssml, int value)
+        public FluentSayNumber(Ssml ssml, double value)
         {
             this._ssml = ssml;
             this._value = value;
@@ -18,7 +18,7 @@ namespace Kevsoft.Ssml
 
         public ISsml AsCardinalNumber()
         {
-            _writer = new SayAsWriter("cardinal", _value.ToString(CultureInfo.InvariantCulture));
+            _writer = new SayAsWriter("cardinal", _value.ToString("N", CultureInfo.InvariantCulture));
 
             return _ssml;
         }

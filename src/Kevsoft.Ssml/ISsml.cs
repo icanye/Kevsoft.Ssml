@@ -11,7 +11,7 @@ namespace Kevsoft.Ssml
 
         IFluentSayTime Say(TimeSpan value);
 
-        IFluentSayNumber Say(int value);
+        IFluentSayNumber Say(double value);
 
         Task<string> ToStringAsync();
 

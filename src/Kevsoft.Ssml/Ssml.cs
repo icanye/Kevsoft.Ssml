@@ -44,7 +44,7 @@ namespace Kevsoft.Ssml
             {
                 throw new ArgumentException("Time must be positive", nameof(value));
             }
-            
+
             if (value.Ticks >= TimeSpan.TicksPerDay)
             {
                 throw new ArgumentException("Time must be positive", nameof(value));
@@ -57,7 +57,7 @@ namespace Kevsoft.Ssml
             return fluentSayTime;
         }
 
-        public IFluentSayNumber Say(int value)
+        public IFluentSayNumber Say(double value)
         {
             var fluentSayNumber = new FluentSayNumber(this, value);
 
@@ -90,7 +90,7 @@ namespace Kevsoft.Ssml
                 await say.WriteAsync(writer)
                     .ConfigureAwait(false);
 
-                if (index != _says.Count -1)
+                if (index != _says.Count - 1)
                 {
                     await writer.WriteStringAsync(" ")
                         .ConfigureAwait(false);
@@ -115,7 +115,7 @@ namespace Kevsoft.Ssml
             {
                 await Write(xmlWriter);
                 await xmlWriter.FlushAsync();
-                    
+
                 return stringBuilder.ToString();
             }
         }
